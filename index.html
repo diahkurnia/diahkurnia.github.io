@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saktenane X Lamunan Player</title>
+    <style>
+        .player-container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        audio {
+            width: 100%;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <h2 class="title">Saktenane X Lamunan</h2>
+        <audio controls onError="showError()" id="audioPlayer">
+            <source src="https://diahkurnia.github.io/Saktenane_X_Lamunan.aac" type="audio/aac">
+            <source src="Saktenane_X_Lamunan.aac" type="audio/aac">
+            Browser Anda tidak mendukung pemutaran file audio ini.
+        </audio>
+        <p id="errorMsg" class="error-message">
+            Gagal memuat audio. Pastikan file ada dan format didukung.
+        </p>
+    </div>
+
+    <script>
+        function showError() {
+            document.getElementById('errorMsg').style.display = 'block';
+        }
+        
+        // Menambahkan event listener untuk debugging
+        const audio = document.getElementById('audioPlayer');
+        audio.addEventListener('error', function(e) {
+            console.error('Error loading audio:', e);
+        });
+    </script>
+</body>
+</html>
